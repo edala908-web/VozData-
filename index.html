@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VozData</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: white;
+            text-align: center;
+        }
+
+        .app {
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 25px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 5px;
+        }
+
+        .subtitulo {
+            color: #9ca3af;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px;
+            margin: 25px 0 15px;
+            font-size: 19px;
+            border-radius: 12px;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 15px 25px;
+            margin: 6px;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .ligar {
+            background: #22c55e;
+            color: white;
+        }
+
+        .apagar {
+            background: #374151;
+            color: white;
+        }
+
+        #estado {
+            margin-top: 25px;
+            color: #60a5fa;
+            min-height: 25px;
+        }
+
+        .info {
+            margin-top: 40px;
+            padding: 15px;
+            background: #1f2937;
+            border-radius: 12px;
+            color: #d1d5db;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <h1>VozData</h1>
+
+        <p class="subtitulo">
+            Chamadas através da Internet
+        </p>
+
+        <input
+            type="tel"
+            id="numero"
+            placeholder="+244 923 000 000"
+        >
+
+        <button class="ligar" onclick="ligar()">
+            📞 Ligar
+        </button>
+
+        <button class="apagar" onclick="apagar()">
+            Apagar
+        </button>
+
+        <p id="estado"></p>
+
+        <div class="info">
+            <p>🌐 Ligação por dados</p>
+            <p>📱 O destinatário não precisa do VozData</p>
+        </div>
+
+    </div>
+
+    <script>
+
+        function ligar() {
+
+            let numero = document.getElementById("numero").value;
+            let estado = document.getElementById("estado");
+
+            if (numero === "") {
+                estado.innerText = "Digite um número.";
+                return;
+            }
+
+            estado.innerText =
+                "📞 A preparar chamada para " + numero + "...";
+        }
+
+        function apagar() {
+
+            document.getElementById("numero").value = "";
+            document.getElementById("estado").innerText = "";
+
+        }
+
+    </script>
+
+</body>
+</html>
